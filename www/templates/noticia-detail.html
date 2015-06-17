@@ -1,0 +1,21 @@
+<ion-view view-title="Noticias" class="noticias-page">
+  <ion-content>
+      <div class="list card">
+		  <div class="item item-avatar">
+		    <img src="img/ic_quirquincho-web.png">
+		    <h2 style='font-size: 80%;'><b>{{noticia.Titulo}}</b></h2>
+		    <p><b>{{noticia.Fecha | date: "dd-MMM-yyyy"}}</b></p>
+		  </div>
+
+		  <div class="item item-body" >
+		    <img class="full-image" src="http://insolwebsite.com/Images/{{noticia.UrlImagen}}">
+		    <p>
+		      {{noticia.TextoNoticia}}
+		    </p>
+		    <p>
+		     <b> {{noticia.Fuente}} </b>
+		    </p>
+		  </div>
+	</div>
+  </ion-content>
+</ion-view>

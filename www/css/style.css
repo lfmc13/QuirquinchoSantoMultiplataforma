@@ -1,0 +1,88 @@
+/* Empty. Add your own CSS if you like */
+.my-menu {
+  background-color: #5959AF;
+  background-image: url('/img/menu_fondo.png');
+}
+
+.my-menu .list {
+  background-color: transparent;
+}
+
+.my-menu .item, .my-menu .item-content, .my-menu .item-complex{
+  background-color: transparent;
+  color: #FFFFFF;
+  border-color: rgba(0,0,0,0);
+}
+
+.options-menu{
+	 background-color: 	#5959AF;
+	 color: #FFFFFF;
+}
+
+.image-size{
+	width:30px;
+}
+
+.image-size-l{
+	width:50px;
+}
+
+p{
+  color: blue !important;
+
+}
+
+
+h2{
+  color: blue !important;
+  font-weight: bold;
+  text-size-adjust: auto;
+  font-size: 90%;
+}
+
+
+
+.noticias-page{
+	background-image: url('/img/menu_fondo.png');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+.titulo{
+	color: blue !important;
+  	font-weight: bold;
+  	text-size-adjust: auto;
+
+}
+.td_blue{
+	color: blue !important;
+  	font-weight: bold;
+  	vertical-align: center;
+}
+
+.td_white{
+
+	background-color: blue;
+	font-weight: bold;
+	color: white;
+	vertical-align: center;
+	text-align: center;
+	float: right;
+	padding: 10px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}
+
+.notifications-container{
+    margin-top:25%;
+	background-color: white;
+	font-weight: bold;
+	color: blue;
+	vertical-align: center;
+	text-align: center;
+	padding: 10px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}

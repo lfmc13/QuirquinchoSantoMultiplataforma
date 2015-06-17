@@ -1,0 +1,26 @@
+<ion-view view-title="Resultados" class="resultados-page">
+  <ion-content>
+    <ion-list>
+      <div class="list card" collection-repeat="resultado in resultados" type="item-text-wrap" >
+         		<table width="100%">
+         			<tr>
+         				<td colspan="7" style='text-align:center; color:blue;'><b> Fecha : {{resultado.Fecha | date: "dd-MMM-yyyy"}} </b> </td>
+         			</tr>
+         			<tr>
+         				<td colspan="7" style='text-align:center; color:blue;'><b> <hr /> </b> </td>
+         			</tr>
+         			<tr>
+         				<td class="td_blue" style='width:15%'><img src="img/{{resultado.ImagenLocal}}" class='image-size-l' /></td>
+         				<td class="td_blue" style='width:20%'>{{resultado.EquipoLocal}}</td>
+         				<td style='width:10%'><div class="td_white">{{resultado.GolesLocal}}</div></td>
+         				<td class="td_blue" style='width:10%;'>&nbsp vs</td>
+         				<td class="td_blue" style='width:15%'><img src="img/{{resultado.ImagenVisitante}}" class='image-size-l' /></td>
+         				<td class="td_blue" style='width:20%'>{{resultado.EquipoVisitante}}</td>
+         				<td style='width:10%'><div class="td_white">{{resultado.GolesVisitante}}</div></td>
+         			</tr>
+         		</table>		
+         		
+	</div>
+    </ion-list>
+  </ion-content>
+</ion-view>
