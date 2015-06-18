@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .my-menu {
   background-color: #5959AF;
-  background-image: url('/img/menu_fondo.png');
+  background-image: url('img/menu_fondo.png');
 }
 
 .my-menu .list {
@@ -43,7 +43,7 @@ h2{
 
 
 .noticias-page{
-	background-image: url('/img/menu_fondo.png');
+	background-image: url('img/menu_fondo.png');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 }
