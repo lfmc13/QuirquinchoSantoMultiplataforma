@@ -4,10 +4,15 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase', 'ionic.service.core'])
 
-.run(function($ionicPlatform, $ionicLoading, $rootScope, $ionicLoading, $window, $localstorage) {
+var db = null;
+
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase', 'ionic.service.core','ngCordova'])
+
+.run(function($ionicPlatform, $ionicLoading, $rootScope, $ionicLoading, $window, $localstorage,$cordovaSQLite) {
   $ionicPlatform.ready(function() {
+
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -18,7 +23,28 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       StatusBar.styleDefault();
     }
 
-   
+    /*if (window.cordova) {
+      db = $cordovaSQLite.openDB("quirquinchosanto.db"); //device
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS noticias  (id integer primary key, Fuente text, TextoNoticia text,Titulo text, UrlImagen text,Fecha text,NoticiaID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS equipo  (id integer primary key, Nombre text, GolesAnotados integer,Posicion text, ImagenUrl text,Fecha text,PartidosDisputados integer,TarjetasAmarillas integer,TarjetasRojas integer,JugadorID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS resultados  (id integer primary key, EquipoLocal text, GolesLocal integer,EquipoVisitante text, GolesVisitante integer,Fecha text,Estado text,ImagenLocal text,ImagenVisitante text,fixtureID integer)");
+
+    }else{
+      db = window.openDatabase("quirquinchosanto.db", '1', 'my', 1024 * 1024 * 100); // browser
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS noticias  (id integer primary key, Fuente text, TextoNoticia text,Titulo text, UrlImagen text,Fecha text,NoticiaID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS equipo  (id integer primary key, Nombre text, GolesAnotados integer,Posicion text, ImagenUrl text,Fecha text,PartidosDisputados integer,TarjetasAmarillas integer,TarjetasRojas integer,JugadorID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS resultados  (id integer primary key, EquipoLocal text, GolesLocal integer,EquipoVisitante text, GolesVisitante integer,Fecha text,Estado text,ImagenLocal text,ImagenVisitante text,fixtureID integer)");
+
+    }*/
+
+
+      db = $cordovaSQLite.openDB("quirquinchosantov1.db"); //device
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS noticias  (id integer primary key, Fuente text, TextoNoticia text,Titulo text, UrlImagen text,Fecha text,NoticiaID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS equipo  (id integer primary key, Nombre text, GolesAnotados integer,Posicion text, ImagenUrl text,Fecha text,PartidosDisputados integer,TarjetasAmarillas integer,TarjetasRojas integer,JugadorID integer)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS resultados  (id integer primary key, EquipoLocal text, GolesLocal integer,EquipoVisitante text, GolesVisitante integer,Fecha text,Estado text,ImagenLocal text,ImagenVisitante text,fixtureID integer,detalles text)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS liga  (id integer primary key, Equipo text, GolDiferencia text,GolesContra text, GolesFavor integer,LogoEquipo text,PartidosEmpatados text,PartidosGanados text,PartidosJugados text,PartidosPerdidos text,Puntos text)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS libertadores  (id integer primary key, Equipo text, GolDiferencia text,GolesContra text, GolesFavor integer,LogoEquipo text,PartidosEmpatados text,PartidosGanados text,PartidosJugados text,PartidosPerdidos text,Puntos text)");
+
     $rootScope.token = null;
 
 
@@ -143,7 +169,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     })
 
      .state('app.noticia-detail', {
-      url: '/noticia/:noticiaId',
+      url: '/noticia/:NoticiaID',
       views: {
         'menuContent': {
           templateUrl: 'templates/noticia-detail.html',
@@ -172,12 +198,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
-   .state('app.competiciones', {
-      url: "/competiciones",
+   .state('app.competencias', {
+      url: "/competencias",
       views: {
         'menuContent': {
-          templateUrl: "templates/competiciones.html",
-          controller: 'CompeticionesCtrl'
+          templateUrl: "templates/competencias.html",
+          controller: 'CompetenciasCtrl'
+        }
+      }
+    })
+
+   .state('app.competencias_libertadores', {
+      url: "/competencias_libertadores",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/competencias_libertadores.html",
+          controller: 'CompetenciasLibertadoresCtrl'
         }
       }
     })
@@ -195,4 +231,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/noticias');
+
+  
 });

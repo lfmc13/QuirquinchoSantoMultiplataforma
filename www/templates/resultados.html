@@ -1,25 +1,37 @@
 <ion-view view-title="Resultados" class="resultados-page">
-  <ion-content>
+  <ion-content overflow-scroll="true">
     <ion-list>
       <div class="list card" collection-repeat="resultado in resultados" type="item-text-wrap" >
-         		<table width="100%">
-         			<tr>
-         				<td colspan="7" style='text-align:center; color:blue;'><b> Fecha : {{resultado.Fecha | date: "dd-MMM-yyyy"}} </b> </td>
-         			</tr>
-         			<tr>
-         				<td colspan="7" style='text-align:center; color:blue;'><b> <hr /> </b> </td>
-         			</tr>
-         			<tr>
-         				<td class="td_blue" style='width:15%'><img src="img/{{resultado.ImagenLocal}}" class='image-size-l' /></td>
-         				<td class="td_blue" style='width:20%'>{{resultado.EquipoLocal}}</td>
-         				<td style='width:10%'><div class="td_white">{{resultado.GolesLocal}}</div></td>
-         				<td class="td_blue" style='width:10%;'>&nbsp vs</td>
-         				<td class="td_blue" style='width:15%'><img src="img/{{resultado.ImagenVisitante}}" class='image-size-l' /></td>
-         				<td class="td_blue" style='width:20%'>{{resultado.EquipoVisitante}}</td>
-         				<td style='width:10%'><div class="td_white">{{resultado.GolesVisitante}}</div></td>
-         			</tr>
-         		</table>		
-         		
+         		<div class="row">
+         			<div class="col" style='text-align:center; color:blue;'>
+                        <b> Fecha : {{resultado.Fecha | date: "dd-MMM-yyyy"}} </b> 
+                    </div>
+                 </div>
+                 <div class="row">
+         				<div class="col"  style='text-align:center; color:blue;'><b> <hr /> </b> </div>
+         		</div>
+                <div class="row">
+                        <div class="col" style='text-align:center; color:blue;' class="font-small"><b> {{resultado.Estado}} </b> </div>
+                </div>
+         		<div class="row">
+         				<div class="col-15 td_blue" style='width:15%'><img src="img/{{resultado.ImagenLocal}}" class='image-size-l' /></div>
+         				<div class="col-20 td_blue" style='width:20%'>{{resultado.EquipoLocal}}</div>
+         				<div class="col-10"><div class="td_white">{{resultado.GolesLocal}}</div></div>
+         				<div class="col-10 td_blue" style='width:10%;'>&nbsp vs</div>
+         				<div class="col-15 td_blue" style='width:15%'><img src="img/{{resultado.ImagenVisitante}}" class='image-size-l' /></div>
+         				<div class="col-20 td_blue" style='width:20%'>{{resultado.EquipoVisitante}}</div>
+         				<div class="col-10" style='width:10%'><div class="td_white">{{resultado.GolesVisitante}}</div></div>
+         		</div>
+                <div class="row">
+                     
+                                <div class="col font-small" ng-init="isVisible=false" style='text-align:right; color:blue;' >
+                                  <img src="img/ic_action_search.png" ng-click="isVisible=!isVisible; " />
+                                  <div class="my-show-hide-animation" ng-hide="isVisible" ng-bind-html="resultado.Detalles">
+                                  </div>
+                                </div>
+                        </div>
+              
+                 
 	</div>
     </ion-list>
   </ion-content>

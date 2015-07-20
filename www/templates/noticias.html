@@ -2,17 +2,16 @@
   <ion-content>
     <ion-list>
       <div class="list card" collection-repeat="noticia in noticias" type="item-text-wrap" >
-         <ion-item class="item-icon-right"  href="#/app/noticia/{{noticia.$id}}">
+         <ion-item class="item-icon-right"  href="#/app/noticia/{{noticia.NoticiaID}}">
 		  <div class="item item-avatar">
 		    <img src="img/ic_quirquincho-web.png">
 		    <h2 type="item-text-wrap" style='text-size-adjust: 80%; font-size: 80%;'><b>{{noticia.Titulo}}</b></h2>
 		    <p>{{noticia.Fecha | date: "dd-MMM-yyyy"}}</p>
 		  </div>
-
 		  <div class="item item-body" >
-		    <img class="full-image" src="http://insolwebsite.com/Images/{{noticia.UrlImagen}}">
-		    <p>
-		      {{noticia.TextoNoticia | limitTo : 120 : 0}}...
+		    <img align='center' class="image-size-Xl" src="http://insolwebsite.com/Images/{{noticia.UrlImagen}}">
+		    <p style="clear:both; font-size: 70%;">
+		      {{noticia.TextoNoticia | limitTo : 140 : 0}}...
 		    </p>
 
 		  </div>

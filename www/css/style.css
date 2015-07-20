@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .my-menu {
   background-color: #5959AF;
-  background-image: url('img/menu_fondo.png');
+  background-image: url('../img/menu_fondo.png');
 }
 
 .my-menu .list {
@@ -27,6 +27,14 @@
 	width:50px;
 }
 
+.image-size-Xl{
+	width:180px;
+	text-align: center;
+	vertical-align: center;
+	margin-left: 15%;
+}
+
+
 p{
   color: blue !important;
 
@@ -43,7 +51,7 @@ h2{
 
 
 .noticias-page{
-	background-image: url('img/menu_fondo.png');
+	background-image: url('../img/menu_fondo.png');
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 }
@@ -85,4 +93,58 @@ h2{
 	-webkit-border-radius: 25px;
 	-moz-border-radius: 25px;
 	border-radius: 25px;
+}
+
+.font-small{
+	font-size: 13px;
+}
+.my-show-hide-animation.ng-hide-add,
+.my-show-hide-animation.ng-hide-remove {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+.my-show-hide-animation.ng-hide {
+  opacity:0;
+}
+.my-show-hide-animation.ng-hide-remove,
+.my-show-hide-animation.ng-hide-add {
+  /* remember, the .hg-hide class is added to element
+     when the active class is added causing it to appear
+     as hidden. Therefore set the styling to display=block
+     so that the hide animation is visible */
+  display:block!important;
+}
+
+.my-show-hide-animation.ng-hide-add {
+  -webkit-animation:0.5s hide;
+  animation:0.5s hide;
+}
+
+@keyframes hide {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-webkit-keyframes hide {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+.my-show-hide-animation.ng-hide-remove {
+  -webkit-animation:0.5s show;
+  animation:0.5s show;
+}
+
+@keyframes show {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@-webkit-keyframes show {
+  from { opacity:0; }
+  to { opacity:1; }
 }

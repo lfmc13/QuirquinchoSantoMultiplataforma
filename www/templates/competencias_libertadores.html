@@ -1,0 +1,45 @@
+<ion-view view-title="Competiciones" class="resultados-page">
+  <ion-content >
+	  <div class="row">
+	  	<a href="#/app/competencias" ><img src="img/logo.jpg" width="100px" height="50px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="img/list_640px.jpg" width="150px" height="50px;">
+	  </div>
+	  <div class="row">
+	   			<div class="col-20" style='text-align:center; color:blue;'><b> Equipo </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> PJ </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> PG </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> PE </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> PP </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> GF </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> GC </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> GD </b> </div>
+	         	<div class="col-10" style='text-align:center; color:blue;'><b> Pts </b> </div>
+	   </div>
+    <ion-list>
+ 	 <div width="100%" class="list" >
+		<div collection-repeat="totales in libertadores" type="item-text-wrap" width="100%">
+          
+         		<div class="row" style='margin:0px 0 32px 0;'>
+                    <div class="col-20 td_blue">
+                        <img src="img/{{totales.LogoEquipo}}" class='image-size-l' /> 
+                          <br />
+                          <!--<span> {{totales.Equipo}} </span>-->
+                    </div>
+                    <div class="col-10" >{{totales.PartidosJugados}} </div>
+                    <div class="col-10" >{{totales.PartidosGanados}}</div>
+                    <div class="col-10" >{{totales.PartidosEmpatados}}</div>
+                    <div class="col-10" >{{totales.PartidosPerdidos}}</div>
+                    <div class="col-10">{{totales.GolesFavor}}</div>
+                    <div class="col-10" >{{totales.GolesContra}}</div>
+                    <div class="col-10"  >{{totales.GolDiferencia}}</div>
+                    <div class="col-10 td_blue">{{totales.Puntos}}</div>
+                </div>  
+         		
+		 
+        </div>
+
+      </div>
+  
+   </ion-list>
+  </ion-content>
+</ion-view>
